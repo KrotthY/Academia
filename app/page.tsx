@@ -1,14 +1,6 @@
 
 import Image from "next/image"
- 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card"
-import CardDestacados from "./ui/home/CardDestacados"
-
+import {CardDestacados, CardPrograma} from './ui/index/index';
 
 
 export default function Page(){
@@ -30,58 +22,22 @@ export default function Page(){
       {/* Programas de cursos destacados */}
       <div className="bg-gray-50 w-full h-64">
         <label htmlFor="" className="text-xl  font-semibold px-20" >Programas - Cursos destacados</label>
-        <div className="flex justify-evenly items-center content-center mt-6   mx-3 ">
+        <div className="flex justify-evenly items-center content-center mt-6 mx-3 ">
           <CardDestacados title="Hola" description="chao"/>
-          <div className="w-72 h-44 bg-white rounded-2xl justify-center items-start inline-flex">
-            <div className="w-full h-full flex-col justify-center items-center inline-flex">
-              <Image alt="test" width={122} height={176} className="rounded-s-lg "  src="https://via.placeholder.com/120x173" />
-            </div>
-            <div className="w-40 h-44 relative flex-col justify-start items-start flex">
-              <div className="w-40 my-1 text-slate-800 text-2xl font-medium leading-7">Siguiente texto</div>
-              <div className="w-40 h-20  text-black text-xs font-normal leading-3">
-                descripción de lo que se busca enseñar
-                descripción de lo que se busca enseñar
-
-              </div>
-              <div className="flex items-end justify-end px-5">
-                <div className="w-28 h-5 px-4 bg-orange-400 rounded-2xl flex justify-center items-center">
-                  <div className="text-slate-50 text-xs font-bold leading-3 tracking-wide">VER</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       {/* Programas de cursos destacados */}
+
       {/* Selecciona tu programa */}
       <div className="flex justify-start items-start my-6 ">
         <div className="text-xl font-semibold px-20">Selecciona tu programa </div>
       </div>
-
       <div className="my-6 flex  justify-evenly items-center  ">
-        <Card className="w-52 h-52">
-          <CardHeader className="p-0">
-            Recomendado para tí
-          </CardHeader>
-          <CardContent className="p-0">
-            <Image alt="test" width={208} height={192} src="https://via.placeholder.com/200x147" />
-          </CardContent>
-          <CardFooter className="p-2 flex flex-col ">
-            <div className=" text-slate-900  text-base font-medium leading-none">
-            Administración
-            </div>
-          </CardFooter>
-        </Card>
-        <Card className="w-52 h-52">
-          <CardContent className="p-0">
-            <Image alt="test" width={208} height={192} className="rounded-t-md" src="https://via.placeholder.com/200x147" />
-          </CardContent>
-          <CardFooter className="p-4 flex flex-col ">
-            <div className=" text-slate-900  text-base font-medium leading-none">
-            Transformación Digital
-            </div>
-          </CardFooter>
-        </Card>
+        <CardPrograma title="Quepaso"/>
+        <CardPrograma title="Quepaso"/>
+        <CardPrograma title="Quepaso"/>
+        <CardPrograma title="Quepaso"/>
+        <CardPrograma title="Quepaso"/>
       </div>
       {/* Selecciona tu programa */}
 
