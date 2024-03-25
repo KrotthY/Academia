@@ -7,4 +7,11 @@ export  interface cardProps {
 
 export interface cardPropsProgramada {
   title: string;
+  recommended:boolean;
+}
+
+export interface cardPropsProgramas {
+  title: string;
+  quatity: number;
+  
 }

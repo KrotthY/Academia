@@ -1,64 +1,69 @@
+"use client";
 
 import Image from "next/image"
-import {CardDestacados, CardPrograma} from './ui/index/index';
+import {CardDestacados, CardPrograma, CardProgramas} from './ui/index/index';
+import { EnterIcon } from "@radix-ui/react-icons"
 
 
 export default function Page(){
   return(
     <>
       {/* header */}
-      <div className="grid grid-cols-2 my-20 px-20 pt-10">
+      <div className="grid lg:grid-cols-2 my-20 px-2 lg:px-20 lg:pt-10">
         <div className="col-span-1 flex flex-col items-start">
-          <div className="text-black text-4xl font-semibold  leading-10 ">Portal Educativo </div>
-          <div className=" text-black text-sm font-normal leading-none my-5">Bienvenidos a nuestra plataforma de capacitación, un espacio dedicado exclusivamente para que nuestros colaboradores puedan adquirir nuevas habilidades y conocimientos esenciales para su desarrollo profesional.</div>
+          <div className="text-black text-3xl lg:text-4xl font-semibold  leading-10 ">Portal Educativo </div>
+          <div className=" text-black text-sm lg:text-md font-normal leading-none my-12 lg:my-5">Bienvenidos a nuestra plataforma de capacitación, un espacio dedicado exclusivamente para que nuestros colaboradores puedan adquirir nuevas habilidades y conocimientos esenciales para su desarrollo profesional.</div>
         </div>
         <div className="col-span-1 flex justify-center ">
           <div className="w-72 h-12 px-4 py-3 bg-orange-400 rounded justify-center items-center inline-flex">
-            <div className="text-slate-50 text-xl font-bold">Ingresa al portal</div>
+            <div className="flex  text-slate-50 text-base lg:text-xl font-bold">
+              <EnterIcon className="mr-2 h-6 w-6" /> Ingresa al portal
+            </div>
           </div>
         </div> 
       </div>
       {/* header */}
       {/* Programas de cursos destacados */}
-      <div className="bg-gray-50 w-full h-64">
-        <label htmlFor="" className="text-xl  font-semibold px-20" >Programas - Cursos destacados</label>
-        <div className="flex justify-evenly items-center content-center mt-6 mx-3 ">
-          <CardDestacados title="Hola" description="chao"/>
+      <div className="bg-gray-50 w-full h-auto mb-10">
+        <div className="flex lg:justify-start justify-center items-start my-6 ">
+          <div className="text-slate-800 text-xl lg:text-2xl font-semibold  md:px-10 lg:px-20">Cursos destacados</div>
+        </div>
+        <div className="flex flex-wrap gap-24 justify-evenly items-center mt-6 mx-3 pb-10 lg:pd-0">
+          <CardDestacados title="Excel avanzado" description="descripcion de destacadossas  sdsaasd  sdadasda  asdkjasjkdsa  jkkasjdjkas  aksdjkkasjd  "/>
+          <CardDestacados title="SIC modulo cajas" description="descripcion de destacados"/>
+          <CardDestacados title="Portal OIRS" description="descripcion de destacados"/>
         </div>
       </div>
       {/* Programas de cursos destacados */}
 
       {/* Selecciona tu programa */}
-      <div className="flex justify-start items-start my-6 ">
-        <div className="text-xl font-semibold px-20">Selecciona tu programa </div>
+      <div className="flex lg:justify-start justify-center items-start my-6 ">
+        <div className="text-slate-800 text-xl lg:text-2xl font-semibold  md:px-10 lg:px-20">Selecciona tu programa </div>
       </div>
-      <div className="my-6 flex  justify-evenly items-center  ">
-        <CardPrograma title="Quepaso"/>
-        <CardPrograma title="Quepaso"/>
-        <CardPrograma title="Quepaso"/>
-        <CardPrograma title="Quepaso"/>
-        <CardPrograma title="Quepaso"/>
+      <div className="flex flex-wrap gap-24 justify-evenly items-center  ">
+        <CardPrograma title="Programa numero 1" recommended={true} />
+        <CardPrograma title="Programas + " recommended={false} />
+        <CardPrograma title="Programas + " recommended={false} />
+        <CardPrograma title="Programas + " recommended={false} />
+        <CardPrograma title="Programas + " recommended={false} />
+        <CardPrograma title="Programas + " recommended={false} />
       </div>
       {/* Selecciona tu programa */}
 
       {/* Programas  */}
-      <div className="flex justify-start items-start my-6">
-        <div className="text-slate-800 text-xl font-semibold leading-normal px-20">
+      <div className="flex justify-start items-start mt-28">
+        <div className="text-slate-800 text-xl lg:text-2xl font-semibold leading-normal px-20 ">
           Programas
         </div>
       </div>
-
-      <div className="my-6 flex  justify-evenly items-center ">
-        <div className="w-56 h-12 relative bg-white rounded-2xl shadow-xl  border">
-          <div className="left-[79px] top-[4px] absolute text-slate-800 text-sm font-normal leading-none">ciber seguridad</div>
-          <div className="left-[92px] top-[27px] absolute text-slate-600 text-xs font-normal leading-3 tracking-widest">10 cursos</div>
-          <Image alt="test" width={64} height={56} className="w-16 h-14 left-0 top-[-4px] absolute shadow" src="https://via.placeholder.com/69x56" />
-        </div>
-        <div className="w-56 h-12 relative bg-white rounded-2xl shadow-xl  border">
-          <div className="left-[79px] top-[4px] absolute text-slate-800 text-sm font-normal leading-none">ciber seguridad</div>
-          <div className="left-[92px] top-[27px] absolute text-slate-600 text-xs font-normal leading-3 tracking-widest">10 cursos</div>
-          <Image alt="test" width={64} height={56} className="w-16 h-14 left-0 top-[-4px] absolute shadow" src="https://via.placeholder.com/69x56" />
-        </div>
+      <div className="my-12 flex flex-wrap justify-center gap-4 items-center mx-1">
+      <CardProgramas  title="Otro title" quatity={2}/>
+      <CardProgramas  title="Otro title" quatity={2}/>
+      <CardProgramas  title="Otro title" quatity={2}/>
+      <CardProgramas  title="Otro title" quatity={2}/>
+      <CardProgramas  title="Otro title" quatity={2}/>
+      <CardProgramas  title="Otro title" quatity={2}/>
+      <CardProgramas  title="Otro title" quatity={2}/>
       </div>
       {/* Programas  */}
 

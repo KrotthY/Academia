@@ -1,6 +1,10 @@
 import React, { FC } from 'react'
 import Image from 'next/image'
 import { cardProps } from '@/interfaces/home'
+import { Button } from '@/components/ui/button'
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { OpenInNewWindowIcon } from '@radix-ui/react-icons'
+
 
 
 
@@ -14,16 +18,18 @@ const CardDestacados: FC<cardProps> = ({title, description}) => {
           <Image alt="test" width={122} height={176} className="rounded-s-lg "  src="https://via.placeholder.com/120x173" />
         </div>
         <div className="w-40 h-44 relative flex-col justify-start items-start flex">
-          <div className="w-40 my-1 text-slate-800 text-2xl font-medium leading-7">{title}</div>
-          <div className="w-40 h-20  text-black text-xs font-normal leading-3">
+          <div className="w-40 my-1 text-slate-800 text-lg lg:text-xl font-medium leading-7 italic">{title}</div>
+          
+          <ScrollArea  className="h-full text-xs w-full  p-1">
             
             {description}
 
-          </div>
-          <div className="flex items-end justify-end px-5">
-            <div className="w-28 h-5 px-4 bg-orange-400 rounded-2xl flex justify-center items-center">
-              <div className="text-slate-50 text-xs font-bold leading-3 tracking-wide">VER</div>
-            </div>
+          </ScrollArea>
+
+          <div className="w-full flex justify-center pb-1">
+              <Button className='bg-orange-400 hover:bg-orange-300 px-6  h-8'>
+              <OpenInNewWindowIcon className="mr-2 h-5 w-5" />Ver
+              </Button>
           </div>
         </div>
       </div>
