@@ -6,15 +6,13 @@ import {
 } from "@/components/ui/card"
 
 import { RocketIcon, OpenInNewWindowIcon } from "@radix-ui/react-icons"
- 
 import { Button } from "@/components/ui/button"
-
-import { cardPropsProgramada } from "@/interfaces/home"
 import { FC } from "react"
 import Link from "next/link"
 import { PublicRoutes } from "@/routes/routes"
+import { cardPropsProgramadaReview } from "@/interfaces/categoriesProgram"
 
-const CardPrograma: FC<cardPropsProgramada> = ({title,recommended}) => {
+const CardProgramaReview: FC<cardPropsProgramadaReview> = ({title,recommended}) => {
 
   return (
     <>
@@ -29,16 +27,13 @@ const CardPrograma: FC<cardPropsProgramada> = ({title,recommended}) => {
               </div>
             </div>
           ) :  null}
-          <div className=" py-3.5 px-[1px] text-center align-middle text-slate-900  text-base  leading-none">
+          <div className=" py-3.5 px-[1px] text-slate-900 text-center align-middle text-base  leading-none">
             { title }
             </div>
         </div>
       </CardContent>
       <CardFooter className="p-4 flex flex-col">
-      <Link href={{
-        pathname: PublicRoutes.CATEGORY,
-        query:{id:'1'}
-      }} >
+      <Link href={PublicRoutes.CATEGORY}>
         <Button variant="secondary">
           <OpenInNewWindowIcon className="mr-2 h-5 w-5" /> Revisa el programa
         </Button>
@@ -49,4 +44,4 @@ const CardPrograma: FC<cardPropsProgramada> = ({title,recommended}) => {
   )
 }
 
-export default CardPrograma
+export default CardProgramaReview
