@@ -8,60 +8,21 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { PublicRoutes } from "@/routes/routes"
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
- 
-type Status = {
-  value: string
-  label: string
-}
- 
-const statuses: Status[] = [
-  {
-    value: "backlog",
-    label: "Backlog",
-  },
-  {
-    value: "todo",
-    label: "Todo",
-  },
-  {
-    value: "in progress",
-    label: "In Progress",
-  },
-  {
-    value: "done",
-    label: "Done",
-  },
-  {
-    value: "canceled",
-    label: "Canceled",
-  },
-]
-
+import { Separator } from "@/components/ui/separator"
 
 
 const CategoriesPage = () => {
   
-  const [open, setOpen] = useState(false)
-  const [selectedStatus, setSelectedStatus] = useState<Status | null>(null)
-
-
-
 
   return(
     <>
@@ -73,43 +34,7 @@ const CategoriesPage = () => {
         </div>
       </div>
     </div>
-    <div className="flex items-center space-x-4">
-      <p className="text-sm text-muted-foreground">Status</p>
-      <Popover open={open} onOpenChange={setOpen}>
-        <PopoverTrigger asChild>
-          <Button variant="outline" className="w-[150px] justify-start">
-            {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set status</>}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="p-0" side="right" align="start">
-          <Command>
-            <CommandInput placeholder="Change status..." />
-            <CommandList>
-              <CommandEmpty>No results found.</CommandEmpty>
-              <CommandGroup>
-                {statuses.map((status) => (
-                  <CommandItem
-                    key={status.value}
-                    value={status.value}
-                    onSelect={(value) => {
-                      console.log(value)
-                      setSelectedStatus(
-                        statuses.find((priority) => priority.value === value) ||
-                          null
-                      )
-                      setOpen(false)
-                    }}
-                  >
-                    {status.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverContent>
-      </Popover>
-    </div>
-    <div className="mx-20 mt-5">
+    <div className="mx-20 mt-5 italic">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -125,26 +50,45 @@ const CategoriesPage = () => {
       </Breadcrumb>
     </div>
 
-    <div className="flex flex-wrap gap-24 justify-evenly items-center m-20 ">
+    
+    <div className="flex justify-end items-center m-20">
+      <Select>
+        <SelectTrigger className="w-[280px] shadow">
+          <SelectValue placeholder="Selecciona un programa" />
+        </SelectTrigger>
+        <SelectContent className="bg-white shadow">
+          <SelectGroup>
+            <SelectLabel>Programas</SelectLabel>
+            <SelectItem value="Administración">Administración</SelectItem>
+            <SelectItem value="Transformación Digital">Transformación Digital</SelectItem>
+            <SelectItem value="Tesorería">Tesorería</SelectItem>
+            <SelectItem value="Contabilidad">Contabilidad</SelectItem>
+            <SelectItem value="SIC">SIC</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
 
-    <CardProgramaReview title="Excel Avanzado" recommended={true} />
-    <CardProgramaReview title="Word Básico" recommended={false} />
-    <CardProgramaReview title="Seguridad de la Información" recommended={false} />
-    <CardProgramaReview title="Atención al Cliente" recommended={false} />
-    <CardProgramaReview title="Gestión del Tiempo" recommended={false} />
-    <CardProgramaReview title="Manejo de Conflictos" recommended={true} />
-    <CardProgramaReview title="Comunicación Efectiva" recommended={false} />
-    <CardProgramaReview title="Liderazgo" recommended={true} />
-    <CardProgramaReview title="Gestión de Proyectos" recommended={false} />
-    <CardProgramaReview title="Ciberseguridad" recommended={true} />
-    <CardProgramaReview title="Inteligencia Emocional" recommended={false} />
-    <CardProgramaReview title="Gestión del Cambio" recommended={false} />
-    <CardProgramaReview title="Desarrollo de Software" recommended={false} />
-    <CardProgramaReview title="Marketing Digital" recommended={false} />
-    <CardProgramaReview title="Recursos Humanos" recommended={true} />
+    <div className="flex flex-wrap gap-24 justify-evenly items-center mx-20 mb-10 ">
+
+      <CardProgramaReview title="Excel Avanzado" recommended={true} />
+      <CardProgramaReview title="Word Básico" recommended={false} />
+      <CardProgramaReview title="Seguridad de la Información" recommended={false} />
+      <CardProgramaReview title="Atención al Cliente" recommended={false} />
+      <CardProgramaReview title="Gestión del Tiempo" recommended={false} />
+      <CardProgramaReview title="Manejo de Conflictos" recommended={true} />
+      <CardProgramaReview title="Comunicación Efectiva" recommended={false} />
+      <CardProgramaReview title="Liderazgo" recommended={true} />
+      <CardProgramaReview title="Gestión de Proyectos" recommended={false} />
+      <CardProgramaReview title="Ciberseguridad" recommended={true} />
+      <CardProgramaReview title="Inteligencia Emocional" recommended={false} />
+      <CardProgramaReview title="Gestión del Cambio" recommended={false} />
+      <CardProgramaReview title="Desarrollo de Software" recommended={false} />
+      <CardProgramaReview title="Marketing Digital" recommended={false} />
+      <CardProgramaReview title="Recursos Humanos" recommended={true} />
 
 
-      </div>
+    </div>
 
     </>
   )
